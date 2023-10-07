@@ -16,6 +16,7 @@ int main(void)
 	while (digit1 <= 99)
 	{
 		/* First Loop*/
+		digit2 = digit1;
 		while (digit2 <= 99)
 		{
 			/* Second Loop*/
