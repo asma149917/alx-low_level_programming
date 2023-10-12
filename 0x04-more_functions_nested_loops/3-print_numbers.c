@@ -1,0 +1,18 @@
+#include "main.h"
+
+/**
+ * print_numbers - prints digits from 0 - 9
+ *	only using _putchar twice
+ * Return: Void
+*/
+
+void print_numbers(void)
+{
+	int num = 0;
+
+	do {
+		_putchar(num + 48);
+		num++;
+	} while (num >= 48 && num <= 57);
+	_putchar('\n');
+}
