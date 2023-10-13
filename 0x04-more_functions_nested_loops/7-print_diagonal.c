@@ -19,7 +19,7 @@ void print_diagonal(int n)
 		{
 			for (space = 1; space <= pos; space++)
 				_putchar(' ');
-			_putchar(92); /*This is ASCII of '/' char*/
+				_putchar(92); /*This is ASCII of '/' char*/
 			_putchar('\n');
 		}
 }
