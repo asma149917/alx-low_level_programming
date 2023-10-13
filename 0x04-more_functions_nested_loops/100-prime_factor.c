@@ -27,7 +27,7 @@ double _sqrt(double a)
  * @num: number to find
 */
 
-void largest_prime_factor(long long int num)
+void largest_prime_factor(long int num)
 {
 	int prmNum, largest;
 
