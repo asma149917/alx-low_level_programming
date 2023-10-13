@@ -23,7 +23,7 @@ void print_triangle(int size)
 				if ((height +  base) <= size)
 					_putchar(' ');
 				else
-					_putchar(92);
+					_putchar('#');
 			}
 			_putchar('\n');
 		}
