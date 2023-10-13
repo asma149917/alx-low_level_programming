@@ -11,12 +11,12 @@ double _sqrt(double a)
 {
 	float sqrt, temp;
 
-	sqrt = x / 2;
+	sqrt = a / 2;
 	temp = 0;
 	while (sqrt != temp)
 	{
 		temp = sqrt;
-		sqrt = (x / temp + temp) / 2;
+		sqrt = (a / temp + temp) / 2;
 	}
 	return (sqrt);
 }
@@ -27,7 +27,7 @@ double _sqrt(double a)
  * @num: number to find
 */
 
-void largest_prime_factor(long int num)
+void largest_prime_factor(long long int num)
 {
 	int prmNum, largest;
 
