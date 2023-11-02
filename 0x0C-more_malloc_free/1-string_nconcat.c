@@ -1,46 +1,51 @@
 #include <stdlib.h>
-#include "main.h"
 
 /**
- * *_memset - fills memory with a constant byte
- * @s: memory area to be filled
- * @b: char to copy
- * @n: number of times to copy b
+ * string_nconcat - function that concatenates two strings
  *
- * Return: pointer to the memory area s
- */
-char *_memset(char *s, char b, unsigned int n)
-{
-	unsigned int i;
+ * @s1: string 1
+ * @s2: string 2
+ * @n: bytes of @s2 to add to @s1 to be a new string
+ *
+ * Return: new string followed by the first @n bytes
+ *         of string 2 @s2 or NULL
+*/
 
-	for (i = 0; i < n; i++)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
+{
+	unsigned int l1, l2, i, j;
+	char *str;
+
+	/*treat NULL as empty string*/
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	l1 = l2 = 0;
+	/*length of both s1 & s2 respectively*/
+	while (s1[l1] != '\0')
+		l1++;
+	while (s2[l2] != '\0')
+		l2++;
+
+	/*set n to length of s2*/
+	if (n >= l2)
+		n = l2;
+
+	str = (char *) malloc((l1 + n + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+
+	/*add s1 to str*/
+	for (i = 0; s1[i] != '\0'; i++)
+		str[i] = s1[i];
+	/*add s2 n bytes to str*/
+	for (j = 0; j < n && s2[j] != '\0'; j++)
 	{
-		s[i] = b;
+		str[i] = s2[j];
+		i++;
 	}
-
-	return (s);
-}
-
-/**
- * *_calloc - allocates memory for an array
- * @nmemb: number of elements in the array
- * @size: size of each element
- *
- * Return: pointer to allocated memory
- */
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	char *ptr;
-
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-
-	ptr = malloc(size * nmemb);
-
-	if (ptr == NULL)
-		return (NULL);
-
-	_memset(ptr, 0, nmemb * size);
-
-	return (ptr);
+	str[i] = '\0';
+	return (str);
 }
